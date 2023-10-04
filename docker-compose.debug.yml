@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  simulationearth:
+    image: simulationearth
+    build:
+      context: .
+      dockerfile: ./Dockerfile
