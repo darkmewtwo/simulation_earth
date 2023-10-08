@@ -9,8 +9,8 @@ class Human
 {
 
 private:
-    // char gender;
-    // int age;
+    char gender;
+    int age;
     std::chrono::high_resolution_clock::time_point timeOfBirth;
     std::chrono::high_resolution_clock::time_point timeOfDeath;
     // std::random_device rd;
@@ -18,13 +18,12 @@ private:
 
     // Define a distribution (in this case, integers between 1 and 100)
     std::uniform_int_distribution<int> distribution;
-    std::atomic<bool> isAlive;
-    std::thread lifeTimeThread;
+    // std::atomic<bool> isAlive;
+    bool isAlive;
+    // std::thread lifeTimeThread;
 
 
 public:
-    char gender;
-    int age;
     Human& operator=(const Human& other) {
         // Implement the assignment logic as needed
         // For example, you may need to copy member variables
@@ -34,11 +33,13 @@ public:
         this->age = other.age;
         return *this;
     }
+    Human(): age(0), gender('O') {}
     Human(int age,char gender);
     void death();
     ~Human();
-
     void aging();
+    int get_age() const;
+    char get_gender() const;
 };
 
 #endif
